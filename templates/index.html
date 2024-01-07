@@ -8,16 +8,18 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Gender Predictor from Names</h1>
-    <p>This is a web application of Gender Predictor from Names.</p>
-    <form id="genderForm">
-        <label for="nameInput">Enter Name:</label>
-        <input type="text" id="nameInput" name="name" required>
-        <button type="button" onclick="predictGender()" onsubmit"predictGender()">Submit</button>
-    </form>
+    <div id="form-container">
+        <h1>Gender Predictor from Names</h1>
+        <p>This is a web application of Gender Predictor from Names.</p>
+        <form id="genderForm">
+            <label for="nameInput">Enter Name:</label>
+            <input type="text" id="nameInput" name="name" required>
+            <button type="button" onclick="predictGender()" onsubmit"predictGender()">Submit</button>
+        </form>
 
-    <div id="resultContainer">
-        <p id="predictionResult">Gender Prediction: </p>
+        <div id="resultContainer">
+            <p id="predictionResult">Gender Prediction: </p>
+        </div>
     </div>
 
     <script>

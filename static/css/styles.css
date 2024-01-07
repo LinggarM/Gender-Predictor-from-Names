@@ -1,11 +1,25 @@
+body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+}
+
+#form-container {
+}
+
 h1 {
     text-align: center;
-    margin-top: 100px
+    margin: 0;
+    margin-bottom: 10px
 }
+
 p {
     text-align: center;
     margin-bottom: 30px
 }
+
 form {
     max-width: 400px;
     margin: 0 auto;
