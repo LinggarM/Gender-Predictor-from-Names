@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Predictor from Names</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Gender Predictor from Names</h1>
+    <p>This is a web application of Gender Predictor from Names.</p>
+    <form id="genderForm">
+        <label for="nameInput">Enter Name:</label>
+        <input type="text" id="nameInput" name="name" required>
+        <button type="button" onclick="predictGender()" onsubmit"predictGender()">Submit</button>
+    </form>
+
+    <div id="resultContainer">
+        <p id="predictionResult">Gender Prediction: </p>
+    </div>
+
+    <script>
+        function predictGender() {
+            var nameInput = $('#nameInput').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/predict_gender',
+                data: { 'name': nameInput },
+                success: function(response) {
+                    var prediction = response.prediction;
+                    alert("Gender Prediction for '" + nameInput + "': " + prediction);
+                    $('#resultContainer').show();
+                    $('#predictionResult').html('Gender Prediction: ' + '<b>' + prediction + '</b>');
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
